@@ -22,32 +22,28 @@ const postsQuery = graphql`
 		}
 	}
 `
-const Posts = () => {
-	return (
-		<>
-			<h2>Posts</h2>
-			<StaticQuery
-				query={postsQuery}
-				render={({allMarkdownRemark}) => (
-					<>
-					{
-						allMarkdownRemark.edges.map(edge => {
-							const { excerpt } = edge.node
-							const { date, slug, title } = edge.node.frontmatter
-							return (
-								<article key={slug}>
-									<h2><Link to={slug}>{title}</Link></h2>
-									<p>{date}</p>
-									<p>{excerpt}</p>
-								</article>
-							)
-						})
-					}
-					</>
-				)}
-			/>
-		</>
-	)
-}
+const Posts = () => (
+	<StaticQuery
+		query={postsQuery}
+		render={({allMarkdownRemark}) => (
+			<>
+			{
+				allMarkdownRemark.edges.map(edge => {
+					const { excerpt } = edge.node
+					const { date, slug, title } = edge.node.frontmatter
+					return (
+						<article key={slug}>
+							<h2><Link to={slug}>{title}</Link></h2>
+							<p>{date}</p>
+							<p>{excerpt}</p>
+						</article>
+					)
+				})
+			}
+			</>
+		)}
+	/>
+)
+
 
 export default Posts
