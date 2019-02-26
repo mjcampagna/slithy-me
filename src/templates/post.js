@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 const Post = (props) => {
 	const { frontmatter, html } = props.data.markdownRemark
 	return (
-		<Layout>
+		<Layout location={props.location}>
 			<h1>{frontmatter.title}</h1>
 			<p>{frontmatter.date}</p>
 			<div dangerouslySetInnerHTML={{

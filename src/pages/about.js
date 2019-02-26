@@ -4,8 +4,8 @@ import { Link } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
-const About = () => (
-	<Layout>
+const About = ({ location }) => (
+	<Layout location={location}>
 		<SEO
 			title="About Us"
 		/>
