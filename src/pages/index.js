@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-import Layout from '../components/layout'
-import Posts from '../components/posts'
-import SEO from '../components/seo'
+import Layout from '../components/Layout'
+import Posts from '../components/Posts'
+import SEO from '../components/SEO'
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO
+      keywords={[`gatsby`, `application`, `react`]}
+      title="Home"
+    />
     <Posts />
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 

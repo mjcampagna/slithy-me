@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from './layout.js'
+
+import Layout from '../components/Layout'
 
 const Post = (props) => {
 	const { frontmatter, html } = props.data.markdownRemark
