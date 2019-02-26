@@ -7,7 +7,7 @@ import './style.css'
 // import './layout.css'
 
 import Header from '../Header'
-import Archive from '../Archive'
+import Footer from '../Footer'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -22,17 +22,11 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
-
-        <Archive />
+        <Header
+          siteTitle={data.site.siteMetadata.title}
+        />
+        <main>{children}</main>
+        <Footer />
       </>
     )}
   />
