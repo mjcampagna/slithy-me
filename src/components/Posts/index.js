@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, Link, StaticQuery } from 'gatsby'
+import './style.scss'
 
 const postsQuery = graphql`
 	query PostsQuery {
@@ -34,8 +35,8 @@ const Posts = () => (
 					return (
 						<article key={slug}>
 							<h2><Link to={slug}>{title}</Link></h2>
-							<p>{date}</p>
-							<p>{excerpt}</p>
+							<p className="dateline">{date}</p>
+							<p>{/* edge.node.frontmatter.excerpt || */ excerpt}</p>
 						</article>
 					)
 				})

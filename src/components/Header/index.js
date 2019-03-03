@@ -1,16 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import './style.scss'
 
-const Header = ({ siteTitle }) => (
+// import Bio from '../Bio'
+
+const Header = ({ location, siteTitle }) => (
   <header>
-    <div>
-      <h1>
-        <Link to="/">
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+    <h1>
+      <Link to="/">
+        {siteTitle}
+      </Link>
+    </h1>
+    {/* { location.pathname === '/' &&
+      <Bio />
+    } */}
   </header>
 )
 

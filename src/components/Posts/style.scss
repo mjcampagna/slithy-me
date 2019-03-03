@@ -1,0 +1,73 @@
+article {
+	color: #454545;
+	margin: 3rem auto;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	h1 {
+		font-family: 'Marvin Visions', sans-serif;
+		font-size: 3rem;
+		line-height: 3.25rem;
+		margin: 0;
+		padding: 0.125rem 0;
+
+		+ p {
+			&.dateline {
+				margin-bottom: 1.1875rem;
+			}
+		}
+	}
+
+	h2 {
+		font-family: 'Marvin Visions', sans-serif;
+		font-size: 2rem;
+		line-height: 2.25rem;
+		margin: 0;
+		padding: 0.125rem 0;
+
+		a {
+			background-clip: text;
+			background-image: linear-gradient(135deg, #22c1c3 15%, #fdbb2d 85%);
+			color: transparent;
+
+			&:hover {
+				color: transparent;
+			}
+		}
+	}
+	
+	a {
+		color: #22c1c3;
+		text-decoration: none;
+	
+		&:hover {
+			color: #fdbb2d;
+			text-decoration: none;	
+		}
+	}
+	
+	p {
+		line-height: 1.5rem;
+		margin: 0 0 1.1875rem;
+
+		&.dateline {
+			font-family: 'B612 Mono', monospace;
+			font-size: 0.6875rem;
+			line-height: 1.1875rem;
+			margin: 0 0 0.5rem;
+		}
+	}
+
+	ol,
+	ul {
+		margin: 0 0 1.1875rem;
+
+		li {
+			font-size: 0.875rem;
+			line-height: 1.5rem;
+			list-style-type: square;
+		}
+	}
+}

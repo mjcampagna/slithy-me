@@ -1,12 +1,12 @@
 ---
 date: "2017-08-31"
 slug: "ftp-to-mamp"
-title: "FTP TO MAMP LOCALHOST ON MACOS"
+title: "FTP to MAMP localhost on MacOS"
 ---
 
-… because other articles I’ve found on the topic are years old and out-of-date.
+Because other articles I’ve found on the topic are years old and out-of-date.
 
-On macOS Sierra, running local servers via MAMP, and wanting to connect to servers using my FTP client. Yes, I know I can copy files into localhost via Finder, but I have my reasons.
+On macOS, running local servers via MAMP, and wanting to connect to servers using my FTP client. Yes, I know I can copy files into localhost via Finder, but I have my reasons.
 
 - Go System Preferences => Sharing.
 - Enable Remote Login.

@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import { useTransition, animated } from 'react-spring'
 
 import 'normalize.css'
-import './style.css'
+import './style.scss'
 // import './layout.css'
 
 import Header from '../Header'
@@ -30,19 +30,21 @@ const Layout = ({ children, location }) => {
         }
       `}
       render={data => (
-        <>
-          <Header
-            siteTitle={data.site.siteMetadata.title}
-          />
-
-          { transitions.map(({ key, props }) =>
-            <animated.main key={key} style={props}>
-              {children}
-            </animated.main>
-          )}
-
-          <Footer />
-        </>
+        <div className="page-wrapper" id="page-wrapper">
+          <div className="page-body" id="page-body">
+            <Header
+              location={location}
+              siteTitle={data.site.siteMetadata.title}
+            />
+            { transitions.map(({ key, props }) =>
+              <animated.main key={key} style={props}>
+                {children}
+              </animated.main>
+            )}
+            <Footer />
+          </div>
+          <div id="side">...</div>
+        </div>
       )}
     />
   )

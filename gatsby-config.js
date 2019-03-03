@@ -5,6 +5,7 @@ module.exports = {
     author: `@matteocampagna`,
   },
   plugins: [
+    `gatsby-mdx`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
@@ -18,7 +19,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/posts`,
+        path: `${__dirname}/src/_posts`,
       },
     },
     `gatsby-transformer-remark`,
