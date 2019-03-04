@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
 
 	return new Promise((resolve, reject) => {
 		graphql(`{
-			allMarkdownRemark {
+			allMdx {
 				edges {
 					node {
 						frontmatter {
@@ -16,11 +16,11 @@ exports.createPages = ({ graphql, actions }) => {
 			}
 		}`)
 		.then(results => {
-			results.data.allMarkdownRemark.edges.forEach(({ node }) => {
+			results.data.allMdx.edges.forEach(({ node }) => {
 				const { slug } = node.frontmatter
 				createPage({
-					path: slug,
-					component: path.resolve(`./src/templates/post.js`),
+					path: `post/${slug}`,
+					component: path.resolve(`./src/components/Post/mdx-post.js`),
 					context: {
 						slug
 					},

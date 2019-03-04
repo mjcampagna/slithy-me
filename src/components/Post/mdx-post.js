@@ -1,17 +1,20 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import Layout from '../Layout'
+import SEO from '../SEO'
+import MDXRenderer from "gatsby-mdx/mdx-renderer";
 
 const Post = (props) => {
-	const { frontmatter, html } = props.data.markdownRemark
+	const { frontmatter, code } = props.data.mdx
 	return (
 		<Layout location={props.location}>
+      <SEO
+        title={frontmatter.title}
+      />
       <article>
         <h1>{frontmatter.title}</h1>
         <p className="dateline">{frontmatter.date}</p>
-        <div dangerouslySetInnerHTML={{
-          __html: html
-        }} />
+        <MDXRenderer>{code.body}</MDXRenderer>
       </article>
     </Layout>
 	)
@@ -19,8 +22,8 @@ const Post = (props) => {
 
 export default Post
 
-export const query = graphql`query postQuery( $slug: String! ) {
-  markdownRemark(frontmatter: {
+export const queryMdx = graphql`query mdxPostQuery( $slug: String! ) {
+  mdx(frontmatter: {
     slug: {
       eq: $slug
     }
@@ -29,6 +32,8 @@ export const query = graphql`query postQuery( $slug: String! ) {
       date(formatString: "MMMM DD, YYYY")
       title
     }
-    html
+    code {
+      body
+    }
   }
 }`

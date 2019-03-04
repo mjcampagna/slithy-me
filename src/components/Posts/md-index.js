@@ -3,8 +3,8 @@ import { graphql, Link, StaticQuery } from 'gatsby'
 import './style.scss'
 
 const postsQuery = graphql`
-	query mdxPostsQuery {
-		allMdx(
+	query mdPostsQuery {
+		allMarkdownRemark(
 			limit: 10,
 			sort: {
 				fields: [frontmatter___date],
@@ -26,10 +26,10 @@ const postsQuery = graphql`
 const Posts = () => (
 	<StaticQuery
 		query={postsQuery}
-		render={({allMdx}) => (
+		render={({allMarkdownRemark}) => (
 			<>
 			{
-				allMdx.edges.map(edge => {
+				allMarkdownRemark.edges.map(edge => {
 					const { excerpt } = edge.node
 					const { date, slug, title } = edge.node.frontmatter
 					return (
