@@ -1,0 +1,15 @@
+---
+date: "2019-03-01"
+slug: "hello-world"
+title: "Hello World"
+---
+
+[Slithy.me](http://slithy.me) has been formless, of nebulous intent.
+
+I had always meant it to be a personal space, a sandbox in which to have out my thoughts, and play with new ideas. Wordpress was an ill fit for that purpose, fine for casual blogging, but a dull sandbox.
+
+Now built with [Gatsby](https://www.gatsbyjs.org/) and [React](https://reactjs.org/), I have high hopes to make this a more interesting space for myself, if not for you, dear reader.
+
+While I have no fixed agenda, one can probably expect to find content existing in the realms of coding and photography, and a bit of cabinet filing of information for my own future reference. I may or may not touch upon other personal interests, such as gaming, music or travel. Whatever else this becomes, so it will be. 
+
+Welcome, Friend, to Slithy.me ...
