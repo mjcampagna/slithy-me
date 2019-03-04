@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 import './style.scss'
 
-// import Bio from '../Bio'
+import Bio from '../Bio'
 
 const Header = ({ location, siteTitle }) => (
   <header>
@@ -12,9 +12,9 @@ const Header = ({ location, siteTitle }) => (
         {siteTitle}
       </Link>
     </h1>
-    {/* { location.pathname === '/' &&
+    { (location.pathname === '/' && false) &&
       <Bio />
-    } */}
+    }
   </header>
 )
 

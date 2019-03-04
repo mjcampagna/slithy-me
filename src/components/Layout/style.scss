@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=B612+Mono|Raleway:400,400i,700,700i');
 
+@font-face {
+  font-family: 'Marvin Visions';
+  font-style: normal;
+	src: local('Marvin Visions'), local('MarvinVisions-Bold'),
+		url('../../fonts/MarvinVisions-Bold.woff2') format('woff2'),
+		url('../../fonts/MarvinVisions-Bold.woff') format('woff');
+}
+
 html {
   background: #fff;
   color: #333;

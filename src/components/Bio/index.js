@@ -14,7 +14,7 @@ const Bio = () => {
 		<>
 		{ transitions.map(({ key, props }) =>
 			<animated.ul id="header-bio" key={key} style={props}>
-				<li>What the world needs now is one more blog.</li>
+				<li>'Twas brillig, and the slithy toves did gyre and gimble in the wabe ...</li>
 			</animated.ul>
 		)}
 		</>
