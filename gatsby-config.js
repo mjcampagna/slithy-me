@@ -5,7 +5,6 @@ module.exports = {
     author: `@matteocampagna`,
   },
   plugins: [
-    `gatsby-mdx`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     {
@@ -21,6 +20,13 @@ module.exports = {
         name: `posts`,
         path: `${__dirname}/src/_posts`,
       },
+    },
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: ['.md', '.mdx'],
+        defaultLayout: require.resolve('./src/components/Layout/index.js'),
+      },  
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,

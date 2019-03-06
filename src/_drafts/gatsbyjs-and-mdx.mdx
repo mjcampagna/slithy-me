@@ -1,0 +1,93 @@
+---
+date: "2019-03-04"
+slug: "gatsbyjs-and-mdx"
+title: "Gatsby JS + MDX"
+---
+
+New blog needs content. Learning [Gatsby](https://www.gatsbyjs.com/) as I go, what better way to begin than by documenting the building of said blog, for my own benefit and potentially for others' as well.
+
+Gatsby is a JavaScript framework allowing one to build a static website using React and GraphQL. It's [Markdown](https://daringfireball.net/projects/markdown/)-friendly and, when configured for [MDX](https://github.com/ChristopherBiscardi/gatsby-mdx), allows one to mix React into Markdown content, making it powerful indeed.
+
+Within the scope of this article, I want to setup the bones of a new Gatsby site, with a blog and MDX support. I will assume some basic familiarity using Git and the command line.
+
+----
+
+## Basic Setup
+
+To begin, have both [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com/get-npm) installed on your system.
+
+Launch your preferred terminal application, navigate to wherever you keep your projects, and let's do some commands. Reference the [Gatsby Quick Start](https://www.gatsbyjs.org/docs/quick-start) if you need to. 
+
+Using your preferred terminal application, install the Gatsby CLI.
+
+	npm install -g gatsby-cli
+
+In your projects folder, create a new site; please choose a better name than "gatsby-site".
+
+	gatsby new gatsby-site
+
+Navigate into the site folder.
+
+	cd gatsby-site
+
+Start the development server.
+
+	gatsby develop
+
+On seeing the "Compiled successfully." notice in your terminal, visit your new site using the provided localhost address, `http://localhost:8000/` by default.
+
+... it's ugly, but it's a start ...
+
+----
+
+## MDX Setup
+
+At this point, most tutorials would give you the grand tour, or get you started using Markdown. Feel free to go find those tutorials; here, we're making a beeline for MDX.
+
+MDX lets you write JSX embedded inside markdown. This is awesome, because it allows you to use the terseness of markdown, and JSX for more advanced components.
+
+At the command-line, install MDX:
+
+	npm install gatsby-mdx @mdx-js/mdx @mdx-js/tag
+
+Open the `gatsby-config.js` file, and add gatsby-mdx to the plugins array:
+
+	module.exports = {
+		plugins: [
+			// ....
+			{
+				resolve: `gatsby-mdx`,
+				extensions: ['.mdx', '.md'],
+			},
+		]
+	}
+
+Restart `gatsby develop` and you may now add `.mdx` files to src/pages.
+
+----
+
+## MDX Blog Setup
+
+Or, [Programmatically Creating Pages](https://gatsby-mdx.netlify.com/guides/programmatically-creating-pages/).
+
+Thus far, setup has been relatively simple. This next step is slightly more involved, but I will strive to keep things as copy-and-paste as possible.
+
+Our blog posts will be `.mdx` files, residing in a folder named "posts". On build, Gatsby will loop through these files, generating pages for each post. We'll use `gatsby-source-filesystem` to instruct Gatsby to source posts from this location.
+
+	// gatsby-config.js
+	module.exports = {
+		plugins: [
+			// Add support for *.mdx files in gatsby
+			"gatsby-mdx",
+			// Add a collection called "posts" that looks
+			// for files in posts/
+			{
+				resolve: "gatsby-source-filesystem",
+				options: {
+					name: "posts",
+					path: __dirname + '/src/_posts',
+				}
+			}
+		]
+	}
+

@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
 				const { slug } = node.frontmatter
 				createPage({
 					path: `post/${slug}`,
-					component: path.resolve(`./src/components/Post/mdx-post.js`),
+					component: path.resolve(`./src/components/ProcessMDX/index.js`),
 					context: {
 						slug
 					},

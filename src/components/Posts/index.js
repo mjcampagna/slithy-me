@@ -34,7 +34,7 @@ const Posts = () => (
 					const { date, slug, title } = edge.node.frontmatter
 					return (
 						<article key={slug}>
-							<h2><Link to={`post/${slug}`}>{title}</Link></h2>
+							<h2 className="heading"><Link to={`post/${slug}`}>{title}</Link></h2>
 							<p className="dateline">{date}</p>
 							<p>{/* edge.node.frontmatter.excerpt || */ excerpt}</p>
 						</article>
@@ -45,6 +45,5 @@ const Posts = () => (
 		)}
 	/>
 )
-
 
 export default Posts

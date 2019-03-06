@@ -7,11 +7,15 @@ article {
 	}
 
 	h1 {
-		font-family: 'Marvin Visions', sans-serif;
 		font-size: 3rem;
 		line-height: 3.25rem;
-		margin: 0;
+		margin: 3rem 0 1.1875rem;
 		padding: 0.125rem 0;
+
+		&.heading {
+			font-family: 'Marvin Visions', sans-serif;
+			margin: 0;
+		}
 
 		+ p {
 			&.dateline {
@@ -21,10 +25,9 @@ article {
 	}
 
 	h2 {
-		font-family: 'Marvin Visions', sans-serif;
 		font-size: 2rem;
 		line-height: 2.25rem;
-		margin: 0;
+		margin: 3rem 0 1.1875rem;
 		padding: 0.125rem 0;
 
 		a {
@@ -35,6 +38,11 @@ article {
 			&:hover {
 				color: transparent;
 			}
+		}
+
+		&.heading {
+			font-family: 'Marvin Visions', sans-serif;
+			margin: 0;
 		}
 	}
 	
