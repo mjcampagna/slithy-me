@@ -13,9 +13,11 @@ const postsQuery = graphql`
 			edges {
 				node {
 					excerpt
+					fields {
+						slug
+					}
 					frontmatter {
 						date(formatString: "MMMM DD, YYYY")
-						slug
 						title
 					}
 				}
@@ -31,10 +33,11 @@ const Posts = () => (
 			{
 				allMdx.edges.map(edge => {
 					const { excerpt } = edge.node
-					const { date, slug, title } = edge.node.frontmatter
+					const { slug } = edge.node.fields
+					const { date, title } = edge.node.frontmatter
 					return (
 						<article key={slug}>
-							<h2 className="heading"><Link to={`post/${slug}`}>{title}</Link></h2>
+							<h2 className="heading"><Link to={`${slug}`}>{title}</Link></h2>
 							<p className="dateline">{date}</p>
 							<p>{/* edge.node.frontmatter.excerpt || */ excerpt}</p>
 						</article>

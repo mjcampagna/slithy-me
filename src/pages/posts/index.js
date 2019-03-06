@@ -11,13 +11,18 @@ const Posts = ({ children, data, location }) => {
 				title="Blog"
 			/>
 			{ posts.map(({ node }) => {
-				const { excerpt } = node
-				const { date, slug, title } = node.frontmatter
+				const { excerpt, id } = node
+				const { slug } = node.fields
+				const { date, title } = node.frontmatter
 				return (
 					<article key={slug}>
-						<h2 className="heading"><Link to={`post/${slug}`}>{title}</Link></h2>
+						<h2 className="heading"><Link to={slug}>{title}</Link></h2>
 						<p className="dateline">{date}</p>
 						<p>{/* edge.node.frontmatter.excerpt || */ excerpt}</p>
+						<ul>
+							<li>{id}</li>
+							<li>{slug}</li>
+						</ul>
 					</article>
 				)
 		})}
@@ -37,10 +42,13 @@ export const pageQuery = graphql`
 			}) {
 			edges {
 				node {
+					id
 					excerpt
+					fields {
+						slug
+					}
 					frontmatter {
 						date(formatString: "MMMM DD, YYYY")
-						slug
 						title
 					}
 				}

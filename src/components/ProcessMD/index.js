@@ -2,6 +2,7 @@
 // import { graphql } from 'gatsby'
 // import Post from '../Post'
 
+
 // const ProcessMD = (props) => {
 // 	const { frontmatter, html } = props.data.markdownRemark
 // 	return (
@@ -19,12 +20,15 @@
 
 // export default ProcessMD
 
-// export const queryMd = graphql`query mdPostQuery( $slug: String! ) {
-//   markdownRemark(frontmatter: {
+// export const pageQuery = graphql`query mdPostQuery( $slug: String! ) {
+//   markdownRemark(fields: {
 //     slug: {
 //       eq: $slug
 //     }
 //   }) {
+//     fields {
+//       slug
+//     }
 //     frontmatter {
 //       date(formatString: "MMMM DD, YYYY")
 //       title

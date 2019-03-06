@@ -1,4 +1,17 @@
 const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === 'Mdx') {
+    const value = createFilePath({ node, getNode })
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `/posts${value}`
+    })
+  }
+}
 
 exports.createPages = ({ graphql, actions }) => {
 	const { createPage } = actions
@@ -9,7 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
 				allMdx {
 					edges {
 						node {
-							frontmatter {
+							fields {
 								slug
 							}
 						}
@@ -19,9 +32,9 @@ exports.createPages = ({ graphql, actions }) => {
 		`)
 		.then(results => {
 			results.data.allMdx.edges.forEach(({ node }) => {
-				const { slug } = node.frontmatter
+				const { slug } = node.fields
 				createPage({
-					path: `post/${slug}`,
+					path: slug,
 					component: path.resolve(`./src/components/ProcessMDX/index.js`),
 					context: {
 						slug

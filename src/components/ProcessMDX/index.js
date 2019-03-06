@@ -18,12 +18,15 @@ const ProcessMDX = (props) => {
 
 export default ProcessMDX
 
-export const queryMdx = graphql`query mdxPostQuery( $slug: String! ) {
-  mdx(frontmatter: {
+export const pageQuery = graphql`query mdxPostQuery( $slug: String! ) {
+  mdx(fields: {
     slug: {
       eq: $slug
     }
   }) {
+    fields {
+      slug
+    }
     frontmatter {
       date(formatString: "MMMM DD, YYYY")
       title
