@@ -4,17 +4,19 @@ exports.createPages = ({ graphql, actions }) => {
 	const { createPage } = actions
 
 	return new Promise((resolve, reject) => {
-		graphql(`{
-			allMdx {
-				edges {
-					node {
-						frontmatter {
-							slug
+		graphql(`
+			{
+				allMdx {
+					edges {
+						node {
+							frontmatter {
+								slug
+							}
 						}
 					}
 				}
 			}
-		}`)
+		`)
 		.then(results => {
 			results.data.allMdx.edges.forEach(({ node }) => {
 				const { slug } = node.frontmatter
