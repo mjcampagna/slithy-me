@@ -22,16 +22,26 @@ exports.createPages = ({ graphql, actions }) => {
 				allMdx {
 					edges {
 						node {
+							id
+							excerpt(pruneLength: 250)
 							fields {
 								slug
+							}
+							frontmatter {
+								date(formatString: "MMMM DD, YYYY")
+								title
 							}
 						}
 					}
 				}
 			}
 		`)
-		.then(results => {
-			results.data.allMdx.edges.forEach(({ node }) => {
+		.then((results, errors) => {
+			if ( errors ) reject(errors)
+
+			const posts = results.data.allMdx.edges
+
+			posts.forEach(({ node }) => {
 				const { slug } = node.fields
 				createPage({
 					path: slug,
@@ -41,6 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
 					},
 				})
 			})
+
 			resolve()
 		})
 	})
