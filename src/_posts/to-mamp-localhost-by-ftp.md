@@ -1,6 +1,5 @@
 ---
 date: "2019-03-06"
-slug: "connecting-to-mamp-localhost-by-ftp"
 title: "Connecting to MAMP localhost by FTP"
 ---
 
