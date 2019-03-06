@@ -17,42 +17,65 @@ exports.createPages = ({ graphql, actions }) => {
 	const { createPage } = actions
 
 	return new Promise((resolve, reject) => {
-		graphql(`
-			{
-				allMdx {
-					edges {
-						node {
-							id
-							excerpt(pruneLength: 250)
-							fields {
-								slug
-							}
-							frontmatter {
-								date(formatString: "MMMM DD, YYYY")
-								title
+
+		resolve(
+			graphql(`
+				{
+					allMdx(
+						limit: 2560
+						sort: {
+							fields: [frontmatter___date],
+							order: DESC,
+						}
+					) {
+						edges {
+							node {
+								id
+								excerpt(pruneLength: 250)
+								fields {
+									slug
+								}
+								frontmatter {
+									date(formatString: "MMMM DD, YYYY")
+									title
+								}
 							}
 						}
 					}
 				}
-			}
-		`)
-		.then((results, errors) => {
-			if ( errors ) reject(errors)
+			`)
+			.then(result => {
+				if (result.errors) {
+					reject(result.errors)
+				}
+				const posts = result.data.allMdx.edges
+				const postsPerPage = 1
+				const numPages = Math.ceil(posts.length / postsPerPage)
 
-			const posts = results.data.allMdx.edges
+				Array.from({ length: numPages }).forEach((_, i) => {
+					createPage({
+						path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+						component: path.resolve('./src/templates/blog.js'),
+						context: {
+							currentPage: i + 1,
+							limit: postsPerPage,
+							numPages,
+							skip: i * postsPerPage,
+						},
+					})
+				})
 
-			posts.forEach(({ node }) => {
-				const { slug } = node.fields
-				createPage({
-					path: slug,
-					component: path.resolve(`./src/components/ProcessMDX/index.js`),
-					context: {
-						slug
-					},
+				posts.forEach(({ node }) => {
+					const { slug } = node.fields
+					createPage({
+						path: slug,
+						component: path.resolve(`./src/components/ProcessMDX/index.js`),
+						context: {
+							slug,
+						},
+					})
 				})
 			})
-
-			resolve()
-		})
+		)
 	})
 }
