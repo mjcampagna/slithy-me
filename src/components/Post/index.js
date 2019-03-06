@@ -9,7 +9,7 @@ const Post = ({ children, date, location, title }) => (
 		/>
 		<article>
 			<h1 className="heading">{title}</h1>
-			<p className="dateline">{date}</p>
+			{date && <p className="dateline">{date}</p>}
 			{children}
 		</article>
 	</Layout>
