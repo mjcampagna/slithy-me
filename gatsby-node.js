@@ -49,12 +49,12 @@ exports.createPages = ({ graphql, actions }) => {
 					reject(result.errors)
 				}
 				const posts = result.data.allMdx.edges
-				const postsPerPage = 1
+				const postsPerPage = 10
 				const numPages = Math.ceil(posts.length / postsPerPage)
 
 				Array.from({ length: numPages }).forEach((_, i) => {
 					createPage({
-						path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+						path: i === 0 ? `/` : `/${i + 1}`,
 						component: path.resolve('./src/templates/blog.js'),
 						context: {
 							currentPage: i + 1,

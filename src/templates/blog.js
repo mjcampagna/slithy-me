@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import Posts from '../components/Posts'
 
 const Archive = ({ data, location, pageContext }) => {
 	const { edges: posts } = data.allMdx
@@ -9,30 +10,37 @@ const Archive = ({ data, location, pageContext }) => {
 	return (
 		<Layout location={location}>
 			<SEO
-				title="Posts"
+				title="Blog"
 			/>
+
 			{ posts.map(({ node }) => {
 				const { excerpt, id } = node
 				const { slug } = node.fields
 				const { date, title } = node.frontmatter
 				return (
-					<article key={id}>
-						<h2 className="heading"><Link to={slug}>{title}</Link></h2>
-						<p className="dateline">{date}</p>
-						<p>{/* edge.node.frontmatter.excerpt || */ excerpt}</p>
-					</article>
+					<Posts 
+						date={date}
+						excerpt={/* edge.node.frontmatter.excerpt || */ excerpt}
+						id={id}
+						slug={slug}
+						title={title}
+					/>
 				)
 			})}
 
-			<ul>
+			<ul className="pagination">
 				{ currentPage >= 2 &&
 					<li>
-						<a href={`/blog/${currentPage === 2 ? '' : currentPage - 1}`}>Previous</a>
+						<Link to={`/${currentPage === 2 ? '' : currentPage - 1}`}>
+							&#x2190;
+						</Link>
 					</li>
 				}
 				{ currentPage < numPages &&
 					<li>
-						<a href={`/blog/${currentPage + 1}`}>Next</a>
+						<Link to={`/${currentPage + 1}`}>
+							&#x2192;
+						</Link>
 					</li>
 				}
 			</ul>

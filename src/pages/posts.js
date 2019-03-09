@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Layout from '../components/Layout'
-import Posts from '../components/Posts'
+import ProcessMDXPosts from '../components/ProcessMDXPosts'
 import SEO from '../components/SEO'
 
 const IndexPage = ({ location }) => (
@@ -10,7 +10,7 @@ const IndexPage = ({ location }) => (
       keywords={[`gatsby`, `application`, `react`]}
       title="Home"
     />
-    <Posts />
+    <ProcessMDXPosts />
   </Layout>
 )
 

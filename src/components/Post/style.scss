@@ -1,9 +1,27 @@
-article.post-preview {
+article.post {
 	color: #454545;
 	margin: 3rem auto;
 
 	&:first-child {
 		margin-top: 0;
+	}
+
+	h1 {
+		font-size: 3rem;
+		line-height: 3.25rem;
+		margin: 3rem 0 1.1875rem;
+		padding: 0.125rem 0;
+
+		&.heading {
+			font-family: 'Marvin Visions', sans-serif;
+			margin: 0;
+		}
+
+		+ p {
+			&.dateline {
+				margin-bottom: 1.1875rem;
+			}
+		}
 	}
 
 	h2 {
@@ -49,31 +67,25 @@ article.post-preview {
 			margin: 0 0 0.5rem;
 		}
 	}
-}
 
-ul.pagination {
-	display: inline-block;
-	font-size: 0;
-	margin: 0;
-	padding: 0;
+	ol,
+	ul {
+		margin: 0 0 1.1875rem;
 
-	li {
-		box-sizing: border-box;
-		display: inline-block;
-		font-size: 2.5rem;
-		font-weight: bold;
-		list-style-type: square;
-		margin: 0;
-		padding: 0;
-		text-align: center;
-
-		a {
-			background-clip: text;
-			background-image: linear-gradient(135deg, #22c1c3 15%, #fdbb2d 85%);
-			color: transparent;
-			display: block;
+		li {
+			font-size: 0.875rem;
 			line-height: 1.5rem;
-			text-decoration: none;
+			list-style-type: square;
+		}
+	}
+
+	pre {
+		overflow-x: auto;
+	
+		code {
+			font-size: 0.875rem;
+			line-height: 1.1875rem;
+			white-space: pre-wrap;
 		}
 	}
 }
