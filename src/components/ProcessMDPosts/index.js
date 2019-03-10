@@ -3,8 +3,8 @@ import { graphql, StaticQuery } from 'gatsby'
 import Posts from '../Posts'
 
 const postsQuery = graphql`
-	query mdxPostsQuery {
-		allMdx(
+	query mdPostsQuery {
+		allMarkdownRemark(
 			limit: 10,
 			sort: {
 				fields: [frontmatter___date],
@@ -14,11 +14,9 @@ const postsQuery = graphql`
 				node {
 					id
 					excerpt
-					fields {
-						slug
-					}
 					frontmatter {
 						date(formatString: "MMMM DD, YYYY")
+						slug
 						title
 					}
 				}
@@ -27,16 +25,15 @@ const postsQuery = graphql`
 	}
 `
 
-const ProcessMDXPosts = () => (
+const ProcessMDPosts = () => (
 	<StaticQuery
 		query={postsQuery}
-		render={({allMdx}) => (
+		render={({allMarkdownRemark}) => (
 			<>
 			{
-				allMdx.edges.map(edge => {
+				allMarkdownRemark.edges.map(edge => {
 					const { excerpt, id } = edge.node
-					const { slug } = edge.node.fields
-					const { date, title } = edge.node.frontmatter
+					const { date, slug, title } = edge.node.frontmatter
 					return (
 						<Posts
 							date={date}
@@ -53,4 +50,4 @@ const ProcessMDXPosts = () => (
 	/>
 )
 
-export default ProcessMDXPosts
+export default ProcessMDPosts

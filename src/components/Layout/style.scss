@@ -33,6 +33,11 @@ a {
 	cursor: pointer;
 }
 
+img {
+	height: auto;
+	max-width: 100%;
+}
+
 #page-wrapper {
 	display: flex;
 	margin: 0 auto;
