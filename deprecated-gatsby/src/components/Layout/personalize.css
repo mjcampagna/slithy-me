@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Helvetica Now";
+  src: url("../../fonts/HelveticaNowDisplayXBlk.otf");
+}
+
+html {
+	background-color: #ffffff;
+	color: #454545;
+	font-size: 16px;
+	text-rendering: optimizelegibility;
+	-ms-touch-action: manipulation;
+	    touch-action: manipulation; /* remove 300ms delay in some browsers */
+}
+
+a {
+  -webkit-tap-highlight-color: rgba( 255, 255, 255, 0.5);
+  -webkit-tap-highlight-color: transparent;
+  /* -webkit-touch-callout: none; */
+}
+
+a:focus,
+button:focus { /* http://a11yproject.com/posts/never-remove-css-outlines/ */
+	outline: thin dotted;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-family: 'Helvetica Now', sans-serif;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding:0;
+}
