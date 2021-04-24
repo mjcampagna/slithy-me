@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import 'normalize.css'
 
 import './app.css'
 import logo from './logo.png'
