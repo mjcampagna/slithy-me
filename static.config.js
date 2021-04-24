@@ -7,4 +7,5 @@
 
 export default {
   maxThreads: 1, // Remove this when you start doing any static generation
+  plugins: ['react-static-plugin-react-router'],
 }
