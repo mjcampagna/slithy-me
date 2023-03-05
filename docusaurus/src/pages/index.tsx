@@ -32,9 +32,10 @@ export default function Home(): JSX.Element {
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
-      <HomepageHeader />
-      <main>
-        <HomepageFeatures />
+      {/* <HomepageHeader /> */}
+      <main style={{ padding: "8px 16px"}}>
+        {/* <HomepageFeatures /> */}
+        <p>This page intentionally left blank.</p>
       </main>
     </Layout>
   );

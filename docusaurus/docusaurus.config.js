@@ -27,6 +27,11 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         blog: {
+          feedOptions: {
+            description: '',
+            title: 'Slithy.me',
+            type: ['atom', 'rss']
+          },
           showReadingTime: true,
         },
         docs: false,
