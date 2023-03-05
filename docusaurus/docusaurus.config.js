@@ -21,6 +21,17 @@ const config = {
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'workshops',
+        path: 'workshops',
+        routeBasePath: 'workshops',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -36,7 +47,7 @@ const config = {
         },
         docs: false,
         // docs: {
-        //   sidebarPath: require.resolve('./sidebars.js'),
+        //   sidebarPath: require.resolve('./docs/_sidebars.js'),
         // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -58,15 +69,22 @@ const config = {
         // },
         items: [
           // {
-          //   type: 'doc',
-          //   docId: 'intro',
+          //   docId: 'docs-index',
+          //   label: 'Docs',
           //   position: 'left',
-          //   label: 'Tutorial',
+          //   type: 'doc',
           // },
           {
             label: 'Blog',
             position: 'left',
             to: '/blog',
+          },
+          {
+            type: 'doc',
+            docId: 'index',
+            docsPluginId: 'workshops',
+            position: 'left',
+            label: 'Workshops',
           },
         ],
       },
