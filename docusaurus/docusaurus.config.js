@@ -28,6 +28,7 @@ const config = {
         id: 'workshops',
         path: 'workshops',
         routeBasePath: 'workshops',
+        sidebarPath: require.resolve('./workshops/_sidebars.js'),
       },
     ],
   ],
@@ -79,13 +80,13 @@ const config = {
             position: 'left',
             to: '/blog',
           },
-          {
-            type: 'doc',
-            docId: 'index',
-            docsPluginId: 'workshops',
-            position: 'left',
-            label: 'Workshops',
-          },
+          // {
+          //   type: 'doc',
+          //   docId: 'index',
+          //   docsPluginId: 'workshops',
+          //   position: 'left',
+          //   label: 'Workshops',
+          // },
         ],
       },
       footer: {

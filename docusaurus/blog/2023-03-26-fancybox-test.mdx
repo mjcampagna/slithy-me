@@ -1,0 +1,56 @@
+---
+slug: fancybox-5012
+title: Fancybox 5.0.12 Test
+---
+
+import Fancybox from '../src/components/Fancybox'
+
+<Fancybox
+  delegate={`[data-fancybox="gallery"]`}
+  options={{}}
+>
+{
+  ([
+  {
+    fileName: '20220430-163523-mc-1004',
+    height: 554,
+    width: 1024,
+  },
+  {
+    fileName: '20220430-163808-mc-1006',
+    height: 640,
+    width: 1024,
+  },
+  {
+    fileName: '20220430-164123-mc-1014',
+    height: 640,
+    width: 1024,
+  },
+  {
+    fileName: '20220430-173045-mc-1130',
+    height: 640,
+    width: 1024,
+  },
+  {
+    fileName: '20220430-180945-mc-1151',
+    height: 554,
+    width: 1024,
+  },
+  {
+    fileName: '20220430-181430-mc-1153',
+    height: 554,
+    width: 1024,
+  },
+]).map(photo => (
+  <img
+    data-fancybox="gallery"
+    data-height={photo.height}
+    data-src={`/img/photos/1024px/${photo.fileName}.jpg`}
+    data-srcset={`/img/photos/1024px/${photo.fileName}.jpg 1x, /img/photos/2048px/${photo.fileName}.jpg 2x`}
+    data-width={photo.width}
+    src={`/img/photos/256px/${photo.fileName}.jpg`}
+    srcset={`/img/photos/256px/${photo.fileName}.jpg 1x, /img/photos/512px/${photo.fileName}.jpg 2x`}
+  />
+))
+}
+</Fancybox>
