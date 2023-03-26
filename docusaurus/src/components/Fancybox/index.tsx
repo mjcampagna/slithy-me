@@ -9,7 +9,7 @@ type Props = {
   options: any
 }
 
-function Fancybox({ children, delegate, options }) {
+function Fancybox({ children, delegate, options }: Props) {
   const container = useRef(null)
 
   useEffect(() => {
