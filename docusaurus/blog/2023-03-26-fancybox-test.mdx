@@ -5,7 +5,9 @@ title: Fancybox 5.0.12 Test
 
 import Fancybox from '../src/components/Fancybox'
 
-## With `data-height` and `data-width` both:
+## `data-height` and `data-width`
+
+See the issue with the 16x9 images (1, 5 and 6).
 
 <Fancybox
   delegate={`[data-fancybox="gallery"]`}
@@ -57,7 +59,9 @@ import Fancybox from '../src/components/Fancybox'
 }
 </Fancybox>
 
-## With `data-width` only:
+## `data-width` only
+
+In this case, `data-height` is omitted, and the problem does not occur.
 
 <Fancybox
   delegate={`[data-fancybox="gallery"]`}
@@ -98,7 +102,6 @@ import Fancybox from '../src/components/Fancybox'
 ]).map(photo => (
   <img
     data-fancybox="gallery"
-    data-height={photo.height}
     data-src={`/img/photos/1024px/${photo.fileName}.jpg`}
     data-srcset={`/img/photos/1024px/${photo.fileName}.jpg 1x, /img/photos/2048px/${photo.fileName}.jpg 2x`}
     data-width={photo.width}
